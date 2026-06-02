@@ -31,13 +31,11 @@ public class ClientS3 {
 
     private static final String CHAVE_ALERTA = "client/alertas_gestora.json";
 
-
     public ClientS3(S3Client s3, ObjectMapper objectMapper) {
         this.s3 = s3;
         this.objectMapper = objectMapper;
         this.objectMapper.registerModule(new JavaTimeModule());
     }
-
 
     public List<Alerta> baixarAlertasPendentes() {
         List<Alerta> todosAlertas = new ArrayList<>();
@@ -75,12 +73,10 @@ public class ClientS3 {
             System.out.println("Error ao baixar os alertas: " + e.getMessage());
         }
 
-
         return todosAlertas.stream()
                 .filter(a -> a.getIssueKey() == null || a.getIssueKey().isEmpty())
                 .toList();
     }
-
 
     public void atualizarIssuesKeys(String servidor, String componente, LocalDateTime timestamp, String issueKey) {
         System.out.println("Atualizar issueKey " + issueKey + " para alerta de " + servidor);
@@ -105,8 +101,5 @@ public class ClientS3 {
             System.err.println("Erro no upload: " + e.getMessage());
         }
     }
-
-
-
 }
 

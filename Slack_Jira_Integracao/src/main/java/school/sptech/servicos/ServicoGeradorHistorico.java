@@ -56,32 +56,43 @@ public class ServicoGeradorHistorico {
                             (existente, substituto) -> existente
                     ));
 
-            historico.put("mttr_por_servidor", agregarMttrPorServidor(registros, nomesServidores));
+            /// historico.put("mttr_por_servidor", agregarMttrPorServidor(registros, nomesServidores));
+
+            Map<String, String> mapeamentoRegioes = Map.of(
+                    "DC-SP-01", "SP",
+                    "DC-RJ-01", "RJ",
+                    "DC-RS-01", "RS"
+            );
 
             Map<String, List<RegistroAlerta>> porDatacenter = registros.stream()
-                    .filter(r -> r.getDatacenter() != null)
+                    .filter(r -> r.getDatacenter() != null && mapeamentoRegioes.containsKey(r.getDatacenter()))
                     .collect(Collectors.groupingBy(RegistroAlerta::getDatacenter));
 
-            Map<String, Object> dadosPorDc = new LinkedHashMap<>();
-            for (Map.Entry<String, List<RegistroAlerta>> entry : porDatacenter.entrySet()) {
-                String dc = entry.getKey();
-                List<RegistroAlerta> regsDc = entry.getValue();
+            Map<String, Object> dadosPorRegiao = new LinkedHashMap<>();
+
+            for (Map.Entry<String, String> entry : mapeamentoRegioes.entrySet()) {
+                String siglaDc = entry.getKey();
+                String nomeRegiao = entry.getValue();
+
+                List<RegistroAlerta> regsDc = porDatacenter.getOrDefault(siglaDc, List.of());
 
                 Map<String, Object> dadosDc = new LinkedHashMap<>();
                 dadosDc.put("alertas_por_semana", agregarPorSemana(regsDc));
 
-                // CORREÇÃO AQUI: Passando o mapa de nomes também na métrica por datacenter
                 dadosDc.put("mttr_por_servidor", agregarMttrPorServidor(regsDc, nomesServidores));
 
                 dadosDc.put("mttr_por_analista", agregarMttrPorAnalista(regsDc));
                 dadosDc.put("sla_por_analista", calcularSlaPorAnalista(regsDc));
 
-                dadosPorDc.put(dc, dadosDc);
+                Map<String, Object> estruturaInterna = new LinkedHashMap<>();
+                estruturaInterna.put(siglaDc, dadosDc);
+
+                dadosPorRegiao.put(nomeRegiao, estruturaInterna);
             }
 
             historico.put("gerado_em", LocalDateTime.now().toString());
             historico.put("periodo_dias", 30);
-            historico.put("datacenters", dadosPorDc);
+            historico.put("regiões", dadosPorRegiao);
 
             String json = objectMapper.writerWithDefaultPrettyPrinter()
                     .writeValueAsString(historico);

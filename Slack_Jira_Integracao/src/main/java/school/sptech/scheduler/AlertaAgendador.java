@@ -9,20 +9,20 @@ import school.sptech.servicos.ServicoGeradorHistorico;
 @Component
 public class AlertaAgendador {
 
-   /// private final AlertaProcessador alertaProcessador;
+    private final AlertaProcessador alertaProcessador;
     private final ServicoGeradorHistorico servicoGeradorHistorico;
 
     public AlertaAgendador(AlertaProcessador alertaProcessador, ServicoGeradorHistorico servicoGeradorHistorico) {
-       /// this.alertaProcessador = alertaProcessador;
+        this.alertaProcessador = alertaProcessador;
         this.servicoGeradorHistorico = servicoGeradorHistorico;
     }
 
-    ///@Scheduled(fixedDelay = 600000)
-    ///public void verificarAlertas() {
-    ///    alertaProcessador.processar();
-   /// }
+    @Scheduled(fixedDelay = 600000)
+    public void verificarAlertas() {
+       alertaProcessador.processar();
+   }
 
-    @Scheduled(cron = "0 03 11 * * *")
+    @Scheduled(cron = "0 37 17 * * *")
     public void gerarHistorico() {
         servicoGeradorHistorico.gerar();
     }
