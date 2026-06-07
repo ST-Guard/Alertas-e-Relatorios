@@ -1,0 +1,522 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+    <style>
+        @page {
+            size: A4;
+            margin: 16mm 12mm;
+        }
+
+        * {
+            font-family: Arial, sans-serif;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #1f2937;
+            background-color: #ffffff;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .pagina {
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        .cabecalho {
+            width: 100%;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #0F1C2E;
+            margin-bottom: 20px;
+        }
+
+        .tabela-cabecalho {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabela-cabecalho td {
+            border: none;
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        .cabecalho h1 {
+            color: #ffc515;
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .cabecalho p {
+            color: #6B7280;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .logo-area {
+            width: 35%;
+            text-align: right;
+        }
+
+        .logo {
+            width: 130px;
+            max-height: 70px;
+        }
+
+        .bloco-resumo {
+            width: 100%;
+            margin-top: 18px;
+            margin-bottom: 18px;
+            padding: 18px;
+            background-color: #0F1C2E;
+            color: white;
+            border-radius: 8px;
+        }
+
+.bloco-resumo {
+    width: 100%;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 18px;
+    background-color: #0F1C2E;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.resumo-info {
+    float: left;
+    width: 65%;
+    background-color: #0F1C2E;
+    border-left: 2px solid #d1d5db;
+    padding-left: 14px;
+}
+
+.resumo-info h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.resumo-info p {
+    line-height: 1.6;
+    font-size: 13px;
+    color: #d1d5db;
+}
+
+.status-geral {
+    float: right;
+    width: 28%;
+    text-align: right;
+    background-color: #0F1C2E;
+    color: #ffffff;
+    padding-top: 4px;
+}
+
+.status-geral .label {
+    font-size: 11px;
+    color: #d1d5db;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-geral .score {
+    font-size: 38px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.status-geral .status {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+        .resumo-info h2 {
+            font-size: 23px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .resumo-info p {
+            line-height: 1.6;
+            font-size: 13px;
+            color: #d1d5db;
+        }
+
+
+
+        .status-geral .label {
+            font-size: 11px;
+            color: #d1d5db;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-geral .score {
+            font-size: 38px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        .status-geral .status {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        .critico {
+            color: #FF5252;
+            font-weight: bold;
+        }
+
+        .atencao {
+            color: #F5A623;
+            font-weight: bold;
+        }
+
+        .saudavel {
+            color: #23B26D;
+            font-weight: bold;
+        }
+
+        .resumo-executivo {
+            margin-top: 16px;
+            margin-bottom: 18px;
+            padding: 14px 16px;
+            background-color: #fff7d6;
+            border-left: 5px solid #ffc515;
+            border-radius: 6px;
+            color: #374151;
+            line-height: 1.5;
+            font-size: 12px;
+        }
+
+        .kpi-container {
+            width: 100%;
+            margin-top: 16px;
+            margin-bottom: 22px;
+            border-collapse: separate;
+            border-spacing: 8px 0;
+        }
+
+        .kpi {
+            width: 25%;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 12px;
+            background-color: #ffffff;
+            vertical-align: top;
+        }
+
+        .kpi h3 {
+            font-size: 11px;
+            color: #6B7280;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .kpi .valor {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0F1C2E;
+            margin-bottom: 4px;
+        }
+
+        .kpi p {
+            font-size: 11px;
+            line-height: 1.35;
+            color: #4b5563;
+        }
+
+        .titulo {
+            color: #244770;
+            margin-top: 22px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            page-break-after: avoid;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            background-color: white;
+        }
+
+        th {
+            background-color: #0F1C2E;
+            color: white;
+            padding: 9px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .tabela-zonas {
+            margin-top: 8px;
+            margin-bottom: 22px;
+            page-break-inside: avoid;
+        }
+
+        .tabela-servidores {
+            margin-top: 8px;
+            table-layout: fixed;
+            font-size: 10.5px;
+        }
+
+        .tabela-servidores th,
+        .tabela-servidores td {
+            padding: 7px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .col-servidor {
+            width: 18%;
+        }
+
+        .col-zona {
+            width: 10%;
+        }
+
+        .col-score {
+            width: 10%;
+        }
+
+        .col-risco {
+            width: 12%;
+        }
+
+        .col-motivo {
+            width: 40%;
+        }
+
+        .rodape {
+            margin-top: 28px;
+            font-size: 10.5px;
+            color: #6b7280;
+            border-top: 1px solid #d1d5db;
+            padding-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="pagina">
+
+    <div class="cabecalho">
+        <table class="tabela-cabecalho">
+            <tr>
+                <td>
+                    <h1>Relatório Operacional</h1>
+                    <p>Dashboard Operacional: Gestor(a) de Infraestrutura</p>
+                </td>
+
+                <td class="logo-area">
+                    <img src="file:///home/izy/Downloads/relatorios_smartData/src/main/resources/assets/logo_smart_azul_preto.png" class="logo" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="bloco-resumo">
+        <div class="resumo-info">
+            <h2>DC-RS-01</h2>
+            <p>
+                Empresa: <strong>Steam</strong><br />
+                Região: <strong>Steam Rs</strong><br />
+                Gerado em: <strong>04/06/2026</strong> às <strong>15:56</strong>
+            </p>
+        </div>
+
+        <div class="status-geral">
+            <div class="label">Score de Saúde</div>
+            <div class="score saudavel">100</div>
+            <div class="status saudavel">Saudável</div>
+        </div>
+    </div>
+
+    <div class="resumo-executivo">
+        O datacenter DC-RS-01 encontra-se saudável, com score de saúde 100/100. No momento, não há sinais críticos relevantes, mas o acompanhamento contínuo deve ser mantido.
+    </div>
+
+    <table class="kpi-container">
+        <tr>
+            <td class="kpi">
+                <h3>Score de Saúde</h3>
+                <div class="valor saudavel">100/100</div>
+                <p>Classificação atual do datacenter.</p>
+            </td>
+
+            <td class="kpi">
+                <h3>Incidentes</h3>
+                <div class="valor">0%</div>
+                <p>Crescimento em relação à semana anterior.</p>
+            </td>
+
+            <td class="kpi">
+                <h3>Servidores Críticos</h3>
+                <div class="valor">0/9</div>
+                <p>Servidores com saúde crítica.</p>
+            </td>
+
+            <td class="kpi">
+                <h3>Uptime</h3>
+                <div class="valor">0/9</div>
+                <p>Servidores abaixo do uptime ideal.</p>
+            </td>
+        </tr>
+    </table>
+
+    <h2 class="titulo">Diagnóstico por Zona</h2>
+
+    <table class="tabela-zonas">
+        <thead>
+        <tr>
+            <th>Zona</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Qtd. Servidores</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+    <td>Zona A</td>
+    <td>80</td>
+    <td>Saudável</td>
+    <td>3</td>
+</tr>
+<tr>
+    <td>Zona B</td>
+    <td>80</td>
+    <td>Saudável</td>
+    <td>3</td>
+</tr>
+<tr>
+    <td>Zona C</td>
+    <td>80</td>
+    <td>Saudável</td>
+    <td>3</td>
+</tr>
+
+        </tbody>
+    </table>
+
+    <h2 class="titulo">Servidores Prioritários</h2>
+
+    <table class="tabela-servidores">
+        <thead>
+        <tr>
+            <th class="col-servidor">Servidor</th>
+            <th class="col-zona">Zona</th>
+            <th class="col-score">Score Atual</th>
+            <th class="col-score">Score Projetado</th>
+            <th class="col-risco">Risco</th>
+            <th class="col-motivo">Motivo</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+    <td>SERVIDOR-RS-01</td>
+    <td>Zona A</td>
+    <td>78</td>
+    <td>70</td>
+    <td>Atenção</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-02</td>
+    <td>Zona A</td>
+    <td>64</td>
+    <td>53</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-03</td>
+    <td>Zona A</td>
+    <td>60</td>
+    <td>49</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-04</td>
+    <td>Zona B</td>
+    <td>69</td>
+    <td>58</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-05</td>
+    <td>Zona B</td>
+    <td>64</td>
+    <td>53</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-06</td>
+    <td>Zona B</td>
+    <td>64</td>
+    <td>53</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-07</td>
+    <td>Zona C</td>
+    <td>73</td>
+    <td>62</td>
+    <td>Atenção</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-08</td>
+    <td>Zona C</td>
+    <td>64</td>
+    <td>53</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+<tr>
+    <td>SERVIDOR-RS-09</td>
+    <td>Zona C</td>
+    <td>60</td>
+    <td>49</td>
+    <td>Crítico</td>
+    <td>Disco e Latência com aumento de persistência crítica</td>
+</tr>
+
+        </tbody>
+    </table>
+
+    <div class="rodape">
+        Relatório gerado automaticamente a cada 20 minutos pelo sistema de monitoramento SmartData.
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap">
+    <meta charset="UTF-8">
+    <style>
+       * {
+           font-family: Arial, sans-serif;
+           border: 0;
+           padding: 0;
+           margin: 0;
+           box-sizing: border-box;
+       }
+
+       body {
+           padding: 36px;
+           color: #1f2937;
+           background-color: #f3f4f6;
+       }
+
+       .pagina {
+           background-color: #ffffff;
+           padding: 32px;
+           border-radius: 12px;
+       }
+
+       .cabecalho {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           padding-bottom: 22px;
+           border-bottom: 3px solid #0F1C2E;
+       }
+
+       .cabecalho h1 {
+           color: #ffc515;
+           font-size: 30px;
+           margin-bottom: 4px;
+       }
+
+       .cabecalho p {
+           color: #6B7280;
+           font-weight: bold;
+           font-size: 14px;
+       }
+
+       .logo {
+           width: 150px;
+       }
+
+       .bloco-resumo {
+           margin-top: 28px;
+           padding: 22px;
+           background-color: #0F1C2E;
+           color: white;
+           border-radius: 10px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+       }
+
+       .bloco-resumo h2 {
+           font-size: 24px;
+           margin-bottom: 10px;
+           color: #ffffff;
+       }
+
+       .bloco-resumo p {
+           line-height: 1.7;
+           font-size: 14px;
+           color: #d1d5db;
+       }
+
+       .status-geral {
+           text-align: right;
+       }
+
+       .status-geral .label {
+           font-size: 12px;
+           color: #d1d5db;
+           text-transform: uppercase;
+           letter-spacing: 1px;
+       }
+
+       .status-geral .score {
+           font-size: 42px;
+           font-weight: bold;
+           margin-top: 4px;
+       }
+
+       .status-geral .status {
+           font-size: 18px;
+           font-weight: bold;
+           margin-top: 2px;
+       }
+
+       .critico {
+           color: #FF5252;
+           font-weight: bold;
+       }
+
+       .atencao {
+           color: #F5A623;
+           font-weight: bold;
+       }
+
+       .saudavel {
+           color: #23B26D;
+           font-weight: bold;
+       }
+
+       .resumo-executivo {
+           margin-top: 22px;
+           padding: 18px 20px;
+           background-color: #fff7d6;
+           border-left: 5px solid #ffc515;
+           border-radius: 8px;
+           color: #374151;
+           line-height: 1.6;
+       }
+
+       .titulo {
+           color: #244770;
+           margin-top: 34px;
+           margin-bottom: 14px;
+           font-size: 22px;
+       }
+
+       .kpi-container {
+           display: flex;
+           gap: 14px;
+           margin-top: 22px;
+       }
+
+       .kpi {
+           border: 1px solid #d1d5db;
+           border-radius: 10px;
+           padding: 16px;
+           width: 25%;
+           background-color: #ffffff;
+           box-shadow: 0 2px 6px rgba(15, 28, 46, 0.08);
+       }
+
+       .kpi h3 {
+           font-size: 13px;
+           color: #6B7280;
+           margin-bottom: 8px;
+           text-transform: uppercase;
+           letter-spacing: 0.4px;
+       }
+
+       .kpi .valor {
+           font-size: 22px;
+           font-weight: bold;
+           color: #0F1C2E;
+           margin-bottom: 4px;
+       }
+
+       .kpi p {
+           font-size: 13px;
+           line-height: 1.4;
+           color: #4b5563;
+       }
+
+       table {
+           width: 100%;
+           border-collapse: collapse;
+           margin-top: 14px;
+           font-size: 13px;
+           background-color: white;
+           border-radius: 8px;
+           overflow: hidden;
+       }
+
+       th {
+           background-color: #0F1C2E;
+           color: white;
+           padding: 11px;
+           text-align: left;
+           font-size: 13px;
+       }
+
+       td {
+           border: 1px solid #e5e7eb;
+           padding: 10px;
+           vertical-align: top;
+       }
+
+       tbody tr:nth-child(even) {
+           background-color: #f9fafb;
+       }
+
+       .rodape {
+           margin-top: 46px;
+           font-size: 12px;
+           color: #6b7280;
+           border-top: 1px solid #d1d5db;
+           padding-top: 14px;
+           text-align: center;
+       }
+    </style>
+
+</head>
+<body>
+
+<div class="pagina">
+
+    <div class="cabecalho">
+        <div>
+            <h1>Relatório Operacional</h1>
+            <p>Dashboard Operacional</p>
+        </div>
+
+        <img src="file:///home/izy/Downloads/relatorios_smartData/src/main/resources/assets/logo_smart_azul_preto.png" class="logo">
+    </div>
+
+    <div class="bloco-resumo">
+        <div>
+            <h2>DC-SP-01</h2>
+            <p>
+                Empresa: <strong>Steam</strong><br>
+                Região: <strong>SP</strong><br>
+                Gerado em: <strong>04/06/2026</strong> às <strong>14:19</strong>
+            </p>
+        </div>
+
+        <div class="status-geral">
+            <div class="label">Score de Saúde</div>
+            <div class="score critico">48</div>
+            <div class="status critico">Crítico</div>
+        </div>
+    </div>
+
+    <div class="resumo-executivo">
+        O datacenter DC-SP-01 encontra-se em estado crítico, com score de saúde 48/100. Foram identificados 2 servidores críticos entre os 2 monitorados. Recomenda-se priorizar a análise dos servidores listados na seção de servidores prioritários.
+    </div>
+
+    <div class="kpi-container">
+        <div class="kpi">
+            <h3>Score de Saúde</h3>
+            <div class="valor critico">48/100</div>
+            <p>Classificação atual do datacenter.</p>
+        </div>
+
+        <div class="kpi">
+            <h3>Incidentes</h3>
+            <div class="valor">0%</div>
+            <p>Crescimento em relação à semana anterior.</p>
+        </div>
+
+        <div class="kpi">
+            <h3>Servidores Críticos</h3>
+            <div class="valor">2/2</div>
+            <p>Servidores com saúde crítica.</p>
+        </div>
+
+        <div class="kpi">
+            <h3>Uptime</h3>
+            <div class="valor">0/2</div>
+            <p>Servidores abaixo do uptime ideal.</p>
+        </div>
+    </div>
+
+    <h2 class="titulo">Diagnóstico por Zona</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Zona</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Qtd. Servidores</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td>ZonaA</td>
+    <td>50</td>
+    <td>Crítico</td>
+    <td>2</td>
+</tr>
+
+        </tbody>
+    </table>
+
+    <h2 class="titulo">Servidores Prioritários</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Servidor</th>
+            <th>Zona</th>
+            <th>Score Atual</th>
+            <th>Score Projetado</th>
+            <th>Risco</th>
+            <th>Motivo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+    <td>SERVIDOR-SP-01</td>
+    <td>ZonaA</td>
+    <td>45</td>
+    <td>45</td>
+    <td>Crítico</td>
+    <td>Sem riscos relevantes</td>
+</tr>
+<tr>
+    <td>SERVIDOR-SP-03</td>
+    <td>ZonaA</td>
+    <td>55</td>
+    <td>48</td>
+    <td>Crítico</td>
+    <td>RAM com aumento de persistência crítica (0.0 p.p.)</td>
+</tr>
+
+        </tbody>
+    </table>
+
+    <div class="rodape">
+        Relatório gerado automaticamente a cada 20 minutos pelo sistema de monitoramento SmartData.
+    </div>
+
+</div>
+
+</body>
+</html>
