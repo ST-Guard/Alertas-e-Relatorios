@@ -7,5 +7,5 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-COPY --from=builder /build/target/*.jar api.jar
+COPY --from=builder /build/target/*-jar-with-dependencies.jar api.jar
 CMD ["java", "-jar", "api.jar"]

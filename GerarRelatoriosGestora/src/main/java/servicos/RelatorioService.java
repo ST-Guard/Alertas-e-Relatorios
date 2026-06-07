@@ -31,12 +31,12 @@ public class RelatorioService {
             String regiao = datacenter.get("regiao").asText();
 
             JsonNode kpiUptime = datacenter.get("kpiUptime");
-            JsonNode kpiCrescimentoIncidentes = datacenter.get("kpiCrescimentoIncidentes");
+            JsonNode kpiCrescimentoIncidentes = datacenter.get("kpiCrescimentoAlertas");
             JsonNode kpiServidoresCriticos = datacenter.get("kpiServidoresCriticos");
 
             Integer totalServidores = kpiServidoresCriticos.get("totalServidores").asInt();
             Integer servidoresCriticos = kpiServidoresCriticos.get("qtdCriticos").asInt();
-            Integer servidoresAbaixoUptime = kpiUptime.get("qtdServidoresInstaveis").asInt();
+            Integer servidoresAbaixoUptime = kpiUptime.get("servidoresAbaixoIdeal").asInt();
 
             String taxaCrescimento = kpiCrescimentoIncidentes.get("valorFormatado").asText();
             String classeStatus = definirClasseStatus(status);
@@ -127,9 +127,9 @@ for (JsonNode zona : zonas) {
             String nomeServidor = servidor.get("servidor").asText();
             String nomeZona = servidor.get("zona").asText();
             Integer scoreAtual = servidor.get("score").asInt();
-            JsonNode projecao = servidor.get("projecaoSaude");
-            Integer scoreProjetado = projecao.get("scoreProjetado").asInt();
-            String risco = projecao.get("risco").asText();
+            JsonNode projecao = servidor.get("tendenciaDegradacao");
+            Integer scoreProjetado = projecao.get("variacaoScore").asInt();
+            String risco = projecao.get("nivelRisco").asText();
             String motivo = projecao.get("motivo").asText();
 
             linhas.append("""

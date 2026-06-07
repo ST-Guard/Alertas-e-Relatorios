@@ -1,11 +1,9 @@
 package com.relatorio;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import model.LeitorJson;
 import servicos.PdfService;
 import servicos.RelatorioService;
 import servicos.S3Service;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -18,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-    private static final String BUCKET = "smartdatabucket2";
-    private static final String CHAVE_JSON_S3 = "client/dashOpGestao.json";
+    private static final String BUCKET = System.getenv("S3_BUCKET");
+    private static final String CHAVE_JSON_S3 = System.getenv("S3_JSON_KEY");
     private static final String CAMINHO_TEMPLATE = "src/main/resources/templates/modeloRelatorioGestorOP.html";
 
     public static void main(String[] args) {
