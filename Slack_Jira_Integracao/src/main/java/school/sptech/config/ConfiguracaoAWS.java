@@ -22,7 +22,7 @@ public class ConfiguracaoAWS {
     @Value("${AWS_SESSION_TOKEN}")
     private String sessionToken;
 
-    @Value("${aws.region}")
+    @Value("${AWS_REGION}")
     private String regiao;
 
     @Bean

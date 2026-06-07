@@ -26,7 +26,7 @@ public class ClientS3 {
     private final S3Client s3;
     private final ObjectMapper objectMapper;
 
-    @Value("${aws.bucket-nome}")
+    @Value("${AWS_BUCKET_NAME}")
     private String nomeBucket;
 
     private static final String CHAVE_ALERTA = "client/alertas_gestora.json";
