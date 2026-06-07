@@ -13,13 +13,13 @@ import software.amazon.awssdk.services.s3.S3Client;
 @Configuration
 public class ConfiguracaoAWS {
 
-    @Value("${aws.accessKeyId}")
+    @Value("${AWS_ACCESS_KEY_ID}")
     private String keyId;
 
-    @Value("${aws.secretKey}")
+    @Value("${AWS_SECRET_ACCESS_KEY}")
     private String secretKey;
 
-    @Value("${aws.sessionToken}")
+    @Value("${AWS_SESSION_TOKEN}")
     private String sessionToken;
 
     @Value("${aws.region}")
