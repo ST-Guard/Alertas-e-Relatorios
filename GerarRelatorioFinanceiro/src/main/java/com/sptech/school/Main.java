@@ -7,13 +7,31 @@ import com.sptech.school.s3.S3StorageService;
 import com.sptech.school.service.PdfService;
 import com.sptech.school.service.RelatorioJsonService;
 import com.sptech.school.util.Formatador;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        LoggingConfig.configurar();
+   public static void main(String[] args) {
+    LoggingConfig.configurar();
 
+    ScheduledExecutorService scheduler =
+            Executors.newSingleThreadScheduledExecutor();
+
+    scheduler.scheduleWithFixedDelay(() -> {
+        try {
+            executarRelatorios();
+        } catch (Exception e) {
+            System.err.println("Erro ao gerar relatorios: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }, 0, 30, TimeUnit.MINUTES);
+}
+
+      private static void executarRelatorios() throws Exception {
+        
         AppConfig config = AppConfig.fromEnv();
         RelatorioJsonService relatorioJsonService = new RelatorioJsonService();
         PdfService pdfService = new PdfService();
@@ -39,6 +57,7 @@ public class Main {
             }
         }
     }
+
 
     private static String chavePdfMensal(String keyBase, String month) {
         int ponto = keyBase.lastIndexOf('.');
