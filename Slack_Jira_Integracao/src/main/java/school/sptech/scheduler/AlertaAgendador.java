@@ -22,7 +22,7 @@ public class AlertaAgendador {
        alertaProcessador.processar();
    }
 
-    @Scheduled(cron = "0 03 16 * * *")
+    @Scheduled(cron = "0 10 16 * * *")
     public void gerarHistorico() {
         servicoGeradorHistorico.gerar();
     }
